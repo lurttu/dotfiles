@@ -18,6 +18,7 @@ filetype plugin on
 set cursorline              " highlight current cursorline
 set ttyfast                 " Speed up scrolling in Vim
 set signcolumn=yes
+set autoread
 
 call plug#begin('~/.vim/plugged')
  Plug 'dracula/vim'
@@ -25,6 +26,7 @@ call plug#begin('~/.vim/plugged')
  Plug 'SirVer/ultisnips'
  Plug 'honza/vim-snippets'
  Plug 'scrooloose/nerdtree'
+ Plug 'github/copilot.vim'
  Plug 'Xuyuanp/nerdtree-git-plugin'
  Plug 'preservim/nerdcommenter'
  Plug 'mhinz/vim-startify'
@@ -37,6 +39,7 @@ call plug#begin('~/.vim/plugged')
  Plug 'vifm/vifm.vim'
  Plug 'nvim-lua/plenary.nvim'
  Plug 'f-person/git-blame.nvim'
+ Plug 'drewtempelmeyer/palenight.vim'
  Plug 'nvim-treesitter/nvim-treesitter'
  Plug 'nvim-lualine/lualine.nvim'
  Plug 'nvim-telescope/telescope.nvim'
@@ -65,8 +68,12 @@ if (has("termguicolors"))
 endif
 
 syntax enable
-colorscheme kanagawa
+"colorscheme kanagawa
 "colorscheme tokyonight
+set background=dark
+colorscheme palenight
+
+let g:palenight_terminal_italics=1
 
 " Fix transparent background
 hi! Normal ctermbg=NONE guibg=NONE 
@@ -133,7 +140,7 @@ endif
 lua << END
 require('lualine').setup {
   options = {
-    theme = 'kanagawa'
+    theme = 'palenight'
   }
 }
 END
